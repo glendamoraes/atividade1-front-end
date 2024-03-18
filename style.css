@@ -1,4 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 
+/*CSS referente a página index*/
+#menu {
+    font-family: "Inter Tight", sans-serif;
+    font-size: 24px;
+    margin-bottom: 54px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 23px;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+.titulo {
+    font-family: "Poppins", sans-serif;
+    font-size: 28px;
+    color:blueviolet;
+    margin-bottom: 32px;
+}
+
+.paragrafo {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/*CSS referente a página sobre*/
 #div1 {
     width: 280px;
     height: 180px;
