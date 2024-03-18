@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!--Primeira API-->
+
+    <p>Arrastar imagem:</p>
+    <div id="div1" ondrop="soltar(event)" ondragover="permiteSoltar(event)"></div>
+    <br>
+    <img id=“img1" src="./assets/img.jpg" draggable="true" ondragstart="arrastar(event)" width="280" height="180">
+
+    <!--Segunda API-->
+    <p>Clique no botão para pegar suas coordenadas.</p>
+    <button onclick="getLocalizacao()">Permitir coordenadas</button>
+    <p id="teste"></p>
+    
+    <script>
+        //Primeira API
+
+        function permiteSoltar(ev) {
+            ev.preventDefault();
+        }
+        function arrastar(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+        function soltar(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+        
+        //Segunda API
+
+        var x = document.getElementById("teste");
+        function getLocalizacao() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(mostraPosicao);
+            } else {
+                x.innerHTML = "Geolocalização não suportada pelo browser.";
+            }
+        }
+        function mostraPosicao(posicao) {
+            x.innerHTML = "Latitude: " + posicao.coords.latitude +
+            "<br>Longitude: " + posicao.coords.longitude;
+        }
+    </script>
+</body>
+</html>
